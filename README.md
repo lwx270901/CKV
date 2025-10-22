@@ -78,14 +78,14 @@ Our setup: Ubuntu 22.04, CUDA 12.6, 8x Nvidia H800 (80GB)
 # The number of processes utilized for parallel evaluation.
 # Normally, set it to the number of GPUs on your machine.
 # Yet, llava_ov_72b needs 4x 80GB GPUs. So set num_chunks to num_gpus//4.
-num_chunks=8
+num_chunks=4
 
 # Supported model: llava_ov_0.5b llava_ov_7b llava_ov_72b video_llava_7b longva_7b
-model=llava_ov_0.5b
+model=llava_ov_7b
 
 # Supported dataset: qaego4d egoschema cgbench mlvu activitynet_qa rvs_ego rvs_movie
 # MLVU has an extremely long video (~9hr). Remove it in the annotation file if your system doesn't have enough RAM.
-dataset=qaego4d
+dataset=mlvu
 
 python -m video_qa.run_eval \
     --num_chunks $num_chunks \
